@@ -20,11 +20,12 @@ const s3 = new AWS.S3()
 
 const router = express.Router()
 
+// CREATE (POST)
 // as Extra to class, added require Token
 router.post('/pictures', requireToken, multerUpload.single('picture'), (req, res, next) => {
   console.log('################################')
   // req.body.picture.owner = req.user.id
-console.log('################################')
+  console.log('################################')
   s3UploadFile.promiseReadFile(req.file)
     .then(fileData => ({
       Key: req.file.filename,
@@ -43,10 +44,61 @@ console.log('################################')
     })
     .then(uploadDocument => {
       // The object we are passing through the browser.
-      res.status(201).json({picture: uploadDocument.toObject() })
+      res.status(201).json({ picture: uploadDocument.toObject() })
     })
     .catch(next)
+})
 
+// INDEX (GET)
+router.get('/pictures', (req, res, next) => {
+  Picture.find()
+    .populate('owner')
+    .then(pictures => {
+      return pictures.map(picture => picture.toObject())
+    })
+    .then(pictures => {
+      res.json({pictures})
+    })
+    .catch()
+})
+
+// SHOW (GET)
+router.get('/pictures/:id', (req, res, next) => {
+  Picture.findById(req.params.id)
+    .populate('owner')
+    .then(handle404)
+    .then(picture => {
+      res.status(200).json({picture: picture.toObject()})
+    })
+    .catch(next)
+})
+
+// UPDATE(PATCH)
+router.patch('/pictures/:id', requireToken, removeBlanks,
+  (req, res, next) => {
+    delete req.body.picture.owner
+
+    Picture.findById(req.params.id)
+      .then(handle404)
+      .then(picture => {
+        requireOwnership(req, picture)
+
+        return picture.update(req.body.picture)
+      })
+      .then(() => res.sendStatus(204))
+      .catch(next)
+  })
+
+// DESTROY(DELETE)
+router.delete('/pictures/:id', requireToken, (req, res, next) => {
+  Picture.findById(req.params.id)
+    .then(handle404)
+    .then(picture => {
+      requireOwnership(req, picture)
+      picture.remove()
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next)
 })
 
 module.exports = router
