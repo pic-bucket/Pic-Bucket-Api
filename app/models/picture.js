@@ -3,21 +3,21 @@ const mongoose = require('mongoose')
 const pictureSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    // required: true
   },
-  description: {
+  url: {
     type: String,
     required: true
   },
   description: {
-    type: String,
-    required: true
-  },
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    type: String
   }
+  // ,
+  // owner: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true
+  // }
 }, {
   timestamps: true
 })
