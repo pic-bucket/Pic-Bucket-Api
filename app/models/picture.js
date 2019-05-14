@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 
 const pictureSchema = new mongoose.Schema({
   title: {
-    type: String,
-    // required: true
+    type: String
+    //, required: true
   },
   url: {
     type: String,
@@ -12,12 +12,12 @@ const pictureSchema = new mongoose.Schema({
   description: {
     type: String
   }
-  // ,
-  // owner: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'User',
-  //   required: true
-  // }
+  ,
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
 }, {
   timestamps: true
 })
