@@ -59,7 +59,7 @@ router.get('/pictures', (req, res, next) => {
     .then(pictures => {
       res.json({pictures})
     })
-    .catch()
+    .catch(next)
 })
 
 // SHOW (GET)
