@@ -9,7 +9,7 @@ const pictureSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
+  tag: {
     type: String
   },
   owner: {
