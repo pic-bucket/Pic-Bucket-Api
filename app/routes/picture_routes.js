@@ -40,7 +40,7 @@ router.post('/pictures', requireToken, multerUpload.single('picture'), (req, res
       // this going to Schema of mongoose
       // console.log()
       // req.body.picture.owner = req.user.id
-      return Picture.create({owner: req.user.id, url: s3Response.Location, title: req.body.title, description: req.body.description})
+      return Picture.create({owner: req.user.id, url: s3Response.Location, title: req.body.title, tag: req.body.tag})
     })
     .then(uploadDocument => {
       // The object we are passing through the browser.
