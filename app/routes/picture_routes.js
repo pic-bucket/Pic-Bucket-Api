@@ -23,9 +23,9 @@ const router = express.Router()
 // CREATE (POST)
 // as Extra to class, added require Token
 router.post('/pictures', requireToken, multerUpload.single('picture'), (req, res, next) => {
-  console.log('################################')
+  // console.log('################################')
   // req.body.picture.owner = req.user.id
-  console.log('################################')
+  // console.log('################################')
   s3UploadFile.promiseReadFile(req.file)
     .then(fileData => ({
       Key: req.file.filename,
@@ -40,7 +40,7 @@ router.post('/pictures', requireToken, multerUpload.single('picture'), (req, res
       // this going to Schema of mongoose
       // console.log()
       // req.body.picture.owner = req.user.id
-      return Picture.create({owner: req.user.id, url: s3Response.Location, title: req.body.title, tag: req.body.tag})
+      return Picture.create({owner: req.user.id, url: s3Response.Location, title: req.body.title, description: req.body.description})
     })
     .then(uploadDocument => {
       // The object we are passing through the browser.
