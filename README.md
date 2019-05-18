@@ -73,6 +73,12 @@ ERD: https://files.slack.com/files-pri/T0351JZQ0-FJKR2SLHX/erd_team_project.jpg
 | PATCH   | /pictures/:id  | pictures#update  |
 | GET  | /pictures/:id  | pictures#destroy  |
 
+### Future updates/interactions
+-------------------------
+* Implement a 3rd party API:
+  - Google maps API for geo tag on pictures.
+* New resources:
+* Followers so an user can have many followers and those followers would be able to like post, share, etc.
 
 ----------
 PicBucket May 14, 2019
