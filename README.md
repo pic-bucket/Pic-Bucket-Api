@@ -3,7 +3,8 @@
 Welcome to our team project “PicBucket” which is full-stack Single Page Appliction that we built in General Assembly Soft Engeering Immersive. This README will show you our story, challenges while we were creating this apllication. In this application, we want our users to be able to sign up, sign in, see pictures, upload/delete their own pictures, and sign out.
 
 ### Technologies used
------------------------
+-------------------------
+
 ###### Front end:
 * HTML
 * CSS
@@ -20,6 +21,28 @@ Welcome to our team project “PicBucket” which is full-stack Single Page Appl
 * Passport
 * Body-Parser
 * Node JS
+
+### Planning
+------------------------------
+We implemented some of Scrum concept for plannig our develoment by having a sprint plannig meating and stand ups meeting at least twice a day. We had initials wireframes and ERD for back and frontend as well as MVP user stories.
+
+### Development Process
+--------------------------------
+We initial break in two teams front and back end, after we acomplished the goals for day 1 we change to mob programing to tackle S3 issues and move foward with the planned schedule.
+
+1. Set up and deploy both repos on github and heroku.
+2. Set up API
+3. Set up front end forms and buttons
+4. Connect front and back end
+5. Test functionality
+6. Deploy working code
+7. Set up diffrent views
+8. Debbugging
+9. Styling
+10. Final deploy
+
+##### Problem Solving:
+We encounter issues merging different pieces of code, we as a group fixed merging conflicts, we opened issues wen needed and jump from front or back end according the project's/group needs.
 
 ##### Project links:
 * Front end repo: (https://github.com/pic-bucket/Pic-Bucket)

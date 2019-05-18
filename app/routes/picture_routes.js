@@ -1,7 +1,7 @@
 const express = require('express')
 
 const passport = require('passport')
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 const s3UploadFile = require('../../lib/s3PictureApi')
 const Picture = require('../models/picture')
 const multer = require('multer')
